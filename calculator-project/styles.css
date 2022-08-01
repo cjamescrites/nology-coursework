@@ -11,25 +11,26 @@ body {
 .outline {
     display: flex;
     flex-direction: column;
-    border: 2px solid green;
     height: 115vh;
     width: 110vw;
     padding: 10px;
 }
 
 .calculator {
-    border: 5px solid darkslateblue;
+    border: 3px solid black;
     display: grid;
     background-color: darkslateblue;
+    border-radius: 5px;
     grid-template-columns: repeat(4, 1fr);
     height: 70%;
-    gap: 2px;
-    padding: 5px;
+    gap: 7px;
+    padding: 10px;
 }
 
 h1 {
     text-align: center;
     color: darkslateblue;
+    text-shadow: -1px 1px 0 #000;
 }
 
 .output {
@@ -45,9 +46,10 @@ h1 {
 }
 
 button {
-    border: 2px solid black;
+    border: 3px solid black;
     color: lightseagreen;
     background-color: darkorchid;
+    text-shadow: -1px 1px 0 #000;
     font-size: 200%;
 }
 
@@ -83,6 +85,16 @@ button {
 
 .add {
     color: lightyellow;
+}
+
+@media screen and (min-width: 1000px) {
+h1 {
+    font-size: 300%;
+}
+
+    .outline {
+    width: 40vw;
+}
 }
 
 
@@ -166,3 +178,4 @@ output {
 @media screen and (max-width: 390px) {
 
 } */
+
