@@ -1,4 +1,92 @@
+* {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
 
+body {
+    display: flex;
+    background-color: lightslategrey;
+    justify-content: center;
+}
+
+.outline {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid green;
+    height: 115vh;
+    width: 110vw;
+    padding: 10px;
+}
+
+.calculator {
+    border: 5px solid darkslateblue;
+    display: grid;
+    background-color: darkslateblue;
+    grid-template-columns: repeat(4, 1fr);
+    height: 70%;
+    gap: 2px;
+    padding: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: darkslateblue;
+}
+
+.output {
+    display:flex;
+    justify-content: right;
+    align-items: center;
+    border: 2px solid black;
+    background-color: black;
+    color:  lightseagreen;
+    grid-column: span 4;
+    text-align: right;
+    font-size: 200%;
+}
+
+button {
+    border: 2px solid black;
+    color: lightseagreen;
+    background-color: darkorchid;
+    font-size: 200%;
+}
+
+.ac {
+    grid-column: span 2;
+    color: lightyellow;
+}
+
+.equals {
+    grid-column: span 2;
+    color: lightyellow;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+.decimal {
+    color: lightyellow;
+}
+
+.divide {
+    color: lightyellow;
+}
+
+.multiply {
+    color: lightyellow;
+}
+
+.subtract {
+    color: lightyellow;
+}
+
+.add {
+    color: lightyellow;
+}
+
+
+/* 
 * { 
     margin: 0;
     padding: 0;
@@ -77,4 +165,4 @@ output {
 
 @media screen and (max-width: 390px) {
 
-}
+} */
