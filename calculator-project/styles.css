@@ -20,7 +20,7 @@ body {
     border: 3px solid black;
     display: grid;
     background-color: darkslateblue;
-    border-radius: 5px;
+    border-radius: 15px;
     grid-template-columns: repeat(4, 1fr);
     height: 70%;
     gap: 7px;
@@ -30,7 +30,7 @@ body {
 h1 {
     text-align: center;
     color: darkslateblue;
-    text-shadow: -1px 1px 0 #000;
+    text-shadow: -1px 1px 0 darkorchid;
 }
 
 .output {
@@ -38,6 +38,7 @@ h1 {
     justify-content: right;
     align-items: center;
     border: 2px solid black;
+    border-radius: 10px;
     background-color: black;
     color:  lightseagreen;
     grid-column: span 4;
@@ -47,6 +48,7 @@ h1 {
 
 button {
     border: 3px solid black;
+    border-radius: 10px;
     color: lightseagreen;
     background-color: darkorchid;
     text-shadow: -1px 1px 0 #000;
@@ -88,11 +90,12 @@ button {
 }
 
 @media screen and (min-width: 1000px) {
+
 h1 {
     font-size: 300%;
 }
 
-    .outline {
+.outline {
     width: 40vw;
 }
 }
