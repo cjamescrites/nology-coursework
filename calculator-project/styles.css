@@ -27,7 +27,7 @@ body {
     width: 30vw;
     margin-left: 35%;
     gap: 5px;
-    padding: 50px;
+    padding: 70px;
 }
 
 .calculator > button {
@@ -66,8 +66,8 @@ body {
     flex-direction: column;
     padding: 15px;
     width: 90%;
-    font-size: 150%;
-    height: 10%
+    font-size: 200%;
+    height: 20%
 }
 
 output {
@@ -76,11 +76,5 @@ output {
 }
 
 @media screen and (max-width: 390px) {
-
-.calculator {
-    height: 90vh;
-    width: 80vw;
-    margin: 0;
-}
 
 }
