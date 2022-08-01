@@ -147,7 +147,9 @@
     const runOperation = () => { 
         firstNum = Number(firstNumArr.join(''));
         secondNum = Number(secondNumArr.join(''));
-        if (operator == "+") {
+        if (firstNum == "0" || secondNum == "0" && operator == "/") {
+            total = "Error: Cannot divide by 0.";
+        } else if (operator == "+") {
             total = firstNum + secondNum;
         } else if (operator == "-") {
             total = firstNum - secondNum;
