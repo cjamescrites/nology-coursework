@@ -26,6 +26,7 @@
     let firstNumArr = [];
     let operator = "";
     let secondNumArr = [];
+    let total = "";
 
     // Button Events
     clear.addEventListener("click", () => {
@@ -33,11 +34,21 @@
         firstNumArr = [];
         secondNumArr = [];
         operator = "";
+        total = "";
     });
 
     add.addEventListener("click", () => {
+        // if (total = null) {
+        //     firstNumArr = [];
+        //     secondNumArr = [];
+        //     secondNum = "";
+        //     firstNumArr[0] = total;
+        //     output.innerHTML += "+";
+        //     operator = "+";
+        //     total = ""; 
+        // } else {
         output.innerHTML += "+";
-        operator = "+";
+        operator = "+"; 
     });
 
     subtract.addEventListener("click", () => {
@@ -147,17 +158,20 @@
     const runOperation = () => { 
         firstNum = Number(firstNumArr.join(''));
         secondNum = Number(secondNumArr.join(''));
-        if (firstNum == "0" || secondNum == "0" && operator == "/") {
-            total = "Error: Cannot divide by 0.";
-        } else if (operator == "+") {
+        total = "";
+        if (operator == "+") {
             total = firstNum + secondNum;
         } else if (operator == "-") {
             total = firstNum - secondNum;
         } else if (operator == "*") {
             total = firstNum * secondNum;
-         } else if (operator == "/") {
+         } else if (operator == "/" && firstNum == "0") {
+            total = "Error: Cannot divide by 0.";
+        } else if (operator == "/" && secondNum == "0") {
+            total = "Error: Cannot divide by 0.";
+        } else if (operator == "/") {
             total = firstNum / secondNum;
-    }
+        }
     output.innerHTML = total;
 };
   
