@@ -1,0 +1,77 @@
+* {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    border: 5px green solid;
+    height: 100vh;
+    width: 100vw;
+}
+
+.main {
+    border: 5px pink solid;
+    text-align: center;
+    height: 80%;
+}
+
+.board-container {
+    display: flex;
+    border: 5px red solid;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+}
+
+.play-board {
+    /* border: 5px blue solid; */
+    display: grid;
+    grid-template-areas:
+    "TL TC TR"
+    "ML MC MR"
+    "BL BC BR";
+    gap: 1px;
+}
+
+.square {
+    border: 1px black solid;
+    padding: 50px;
+
+}
+
+.top-left {
+    grid-area: TL;
+}
+
+.top-center {
+    grid-area: TC;
+}
+
+.top-right {
+    grid-area: TR;
+}
+
+.mid-left {
+    grid-area: ML;
+}
+
+.mid-center {
+    grid-area: MC;
+}
+
+.mid-right {
+    grid-area: MR;
+}
+
+.bot-left {
+    grid-area: BL;
+}
+
+.bot-center {
+    grid-area: BC;
+}
+
+.bot-right {
+    grid-area: BR;
+}
