@@ -5,22 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
-    <link ref="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
     <div class="main">
         <h1>Tic Tac Toe</h1>
-        <div class="play-board">
-            <p class="top-left square">1</p>
-            <p class="top-center square">2</p>
-            <p class="top-right square">3</p>
-            <p class="mid-left square">4</p>
-            <p class="mid-center square">5</p>
-            <p class="mid-right square">6</p>
-            <p class="bot-left square">7</p>
-            <p class="bot-center square">8</p>
-            <p class="bot-right square">9</p>
+        <div class="board-container">
+            <div class="play-board">
+                <button class="top-left square"></button>
+                <button class="top-center square"></button>
+                <button class="top-right square"></button>
+                <button class="mid-left square"></button>
+                <button class="mid-center square"></button>
+                <button class="mid-right square"></button>
+                <button class="bot-left square"></button>
+                <button class="bot-center square"></button>
+                <button class="bot-right square"></button>
+            </div>
         </div>
+        <button class="restart">Restart</button>
     </div>
     <script src="script.js"></script>
 </body>
