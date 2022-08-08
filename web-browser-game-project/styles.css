@@ -27,6 +27,7 @@ h1 {
 
 .board-container {
     display: flex;
+    flex-direction: column;
     border: 5px red solid;
     align-items: center;
     justify-content: center;
@@ -43,10 +44,19 @@ h1 {
     gap: 1px;
 }
 
+.play-choice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#single-player {
+    margin-right: 5px;
+}
+
 .square {
     border: 1px black solid;
     padding: 50px;
-
 }
 
 .top-left {

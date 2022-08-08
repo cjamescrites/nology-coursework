@@ -213,12 +213,12 @@ singlePlayer.addEventListener("click", () => {
 });
 
 multiPlayer.addEventListener("click", () => {
-singlePlayer.classList.add("hidden");
-multiPlayer.classList.add("hidden");
-playBoard.classList.remove("hidden");
+  singlePlayer.classList.add("hidden");
+  multiPlayer.classList.add("hidden");
+  playBoard.classList.remove("hidden");
   squares.forEach((xo) => {
-  xo.addEventListener("click", () => {
-    pvp();
+    xo.addEventListener("click", () => {
+    pvp(xo);
     win();
     tie();
   });
