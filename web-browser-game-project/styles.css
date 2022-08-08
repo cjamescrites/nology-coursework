@@ -94,3 +94,31 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+.winner {
+    background-color: gold;
+    color: black;
+}
+
+.loser {
+    background-color: brown;
+    color: black;
+}
+
+.x {
+    background-color: blue;
+    color: white;
+}
+
+.o {
+    background-color: red;
+    color: black;
+}
+
+.visible {
+    display: visible;
+}
+
+.hidden {
+    display: hidden;
+}
