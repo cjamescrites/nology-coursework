@@ -22,10 +22,13 @@
 // ✓ button that sets all values back to 0
 //   needs to prompt single/multi player option again
 
+
+const playBoard = document.querySelector(".play-board")
+const playableSquares = document.querySelectorAll(".playable");
 //on screen buttons
 const multiPlayer = document.querySelector("#multi-player");
 const singlePlayer = document.querySelector("#single-player");
-const square = document.querySelectorAll(".square");
+const squares = document.querySelectorAll(".square");
 const restart = document.querySelector(".restart");
 const winMessage = document.querySelector("#win-message");
 // top row
@@ -50,12 +53,16 @@ const xClick = (xo) => {
   xo.innerHTML = "X";
   xo.value = 1;
   currentValue = 1;
+  xo.classList.remove("playable");
+  xo.classList.add("x");
 };
 
 const oClick = (xo) => {
   xo.innerHTML = "O";
   xo.value = 2;
   currentValue = 2;
+  xo.classList.remove("playable");
+  xo.classList.add("o");
 };
 
 // checks current value to determine whether to assign X or O, doesn't played buttons to be changed
@@ -75,18 +82,53 @@ const pvp = (xo) => {
     pvpDisplay(xo);
 }
 
-const pve = () => {
+// Single-Player Functions ------------------------------------------------------------------------------
+// randomly picks a playable square, assigns appropriate values, removes playable class from square
+const aiClick = () => {
+  let randomO = Math.floor(Math.random () * playableSquares.length);
+  playableSquares[randomO];
+  playableSquares[randomO].innerHTML = "o";
+  playableSquares[randomO].value = 2;
+  currentValue = 2;
+  playableSquares[randomO].classList.add("o");
+  playableSquares[randomO].classList.remove("playable");
+  console.log(playableSquares[randomO])
+};
 
+const pveDisplay = (xo) => {
+  if (xo.innerHTML != "X" && xo.innerHTML != "O") {
+    if (currentValue == 0 || currentValue == 2) {
+      xClick(xo);
+      playedSquares.push(1);
+    } else if ((currentValue = 1)) {
+      aiClick();
+      playedSquares.push(2);
+    }
+};
+}
+
+const pve = (xo) => {
+    pveDisplay(xo);
 }
 
 // win conditions ------------------------------------------------------------------
 // what happens when X/O wins
 const xWin = () => {
   winMessage.innerHTML = "X Wins!";
-};
+  squares.forEach((xo) => {
+    if (xo.classList.contains("x")) {
+     xo.classList.add("winner");  
+     xo.classList.remove("x");
+  }})};
+
 const oWin = () => {
   winMessage.innerHTML = "O Wins!";
-};
+  squares.forEach((xo) => {
+   if (xo.classList.contains("o")) {
+    xo.classList.add("winner");  
+    xo.classList.remove("o");
+ }})};
+
 
 // three-in-a-row outcomes
 // row wins
@@ -157,13 +199,30 @@ const tie = () => {
         winMessage.innerHTML = "There is a Tie!";
 }};
 
+singlePlayer.addEventListener("click", () => {
+  singlePlayer.classList.add("hidden");
+  multiPlayer.classList.add("hidden");
+  playBoard.classList.remove("hidden");
+  squares.forEach((xo) => {
+    xo.addEventListener("click", () => {
+      pve();
+      win();
+      tie();
+    });
+  });
+});
 
-square.forEach((xo) => {
+multiPlayer.addEventListener("click", () => {
+singlePlayer.classList.add("hidden");
+multiPlayer.classList.add("hidden");
+playBoard.classList.remove("hidden");
+  squares.forEach((xo) => {
   xo.addEventListener("click", () => {
-    pvp(xo);
+    pvp();
     win();
     tie();
   });
+});
 });
 
 // clear function
@@ -171,13 +230,19 @@ const clearBoard = () => {
     currentValue = 0;
     playedSquares = [];
     winMessage.innerHTML = '';
-    square.forEach((xo) => {
+    singlePlayer.classList.remove("hidden");
+    multiPlayer.classList.remove("hidden");
+    playBoard.classList.add("hidden");
+    squares.forEach((xo) => {
         xo.innerHTML = '';
         xo.value = '';
+        xo.classList.remove("x");
+        xo.classList.remove("o");
+        xo.classList.remove("winner");
+        xo.classList.remove("loser");
 })};
 
 restart.addEventListener("click", () =>{
     clearBoard();
 });
 
-console.log(playedSquares);
