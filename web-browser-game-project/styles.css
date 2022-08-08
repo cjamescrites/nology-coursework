@@ -116,9 +116,9 @@ button:hover {
 }
 
 .visible {
-    display: visible;
+    visibility: visible;
 }
 
 .hidden {
-    display: hidden;
+    visibility: hidden;
 }
