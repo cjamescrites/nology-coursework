@@ -259,23 +259,24 @@ singleplayerOption();
 
 
 // clear function
-const clearBoard = () => {
-    multiplayer = 0;
-    currentValue = 0;
-    playedSquares = [];
-    winMessage.innerHTML = '';
-    singlePlayer.classList.remove("hidden");
-    multiPlayer.classList.remove("hidden");
-    playBoard.classList.add("hidden");
-    squares.forEach((xo) => {
-        xo.innerHTML = '';
-        xo.value = '';
-        xo.classList.remove("x");
-        xo.classList.remove("o");
-        xo.classList.remove("winner");
-        xo.classList.add("playable");
-})};
+// const clearBoard = () => {
+//     multiplayer = 0;
+//     currentValue = 0;
+//     playedSquares = [];
+//     winMessage.innerHTML = '';
+//     singlePlayer.classList.remove("hidden");
+//     multiPlayer.classList.remove("hidden");
+//     playBoard.classList.add("hidden");
+//     squares.forEach((xo) => {
+//         xo.innerHTML = '';
+//         xo.value = '';
+//         xo.classList.remove("x");
+//         xo.classList.remove("o");
+//         xo.classList.remove("winner");
+//         xo.classList.add("playable");
+// })};
 
 restart.addEventListener("click", () =>{
-    clearBoard();
+    // clearBoard();
+    location.reload();
 });
