@@ -5,7 +5,7 @@
 // ✓ update innerHTML with an X or O
 // ✓ not allow played squares to be changed
 // ✓ needs option to select between singleplayer and multiplayer
-//   once option is selected run appropriate functions & option buttons disappear
+// ✓ once option is selected run appropriate functions & option buttons disappear
 // ---------- Multi-Player ----------
 // ✓ need to switch between X and O per click to simulate turns
 // ---------- Single-Player ----------
@@ -20,11 +20,12 @@
 // ---------- Reset Condition ----------
 // ✓ need to reset the game without refreshing
 // ✓ button that sets all values back to 0
-//   needs to prompt single/multi player option again
+// ✓ needs to prompt single/multi player option again
 
 
 const playBoard = document.querySelector(".play-board")
 const playableSquares = document.querySelectorAll(".playable");
+const playableSquaresR = Array.from(playableSquares);
 //on screen buttons
 const multiPlayer = document.querySelector("#multi-player");
 const singlePlayer = document.querySelector("#single-player");
@@ -84,15 +85,21 @@ const pvp = (xo) => {
 
 // Single-Player Functions ------------------------------------------------------------------------------
 // randomly picks a playable square, assigns appropriate values, removes playable class from square
+const aiChoice = () => {
+  const playableSquaresArr = playableSquaresR.filter((playable) => {
+    return playable.classList.contains("playable");
+  })
+  let randomO = Math.floor(Math.random()*playableSquaresArr.length);
+    playableSquaresArr[randomO].innerHTML = "O";
+    playableSquaresArr[randomO].value = 2;
+    playableSquaresArr[randomO].classList.add("o");
+    playableSquaresArr[randomO].classList.remove("playable");
+    currentValue = 2;
+    playedSquares.push(2);
+};
+
 const aiClick = () => {
-  let randomO = Math.floor(Math.random () * playableSquares.length);
-  playableSquares[randomO];
-  playableSquares[randomO].innerHTML = "o";
-  playableSquares[randomO].value = 2;
-  currentValue = 2;
-  playableSquares[randomO].classList.add("o");
-  playableSquares[randomO].classList.remove("playable");
-  console.log(playableSquares[randomO])
+  aiChoice();
 };
 
 const pveDisplay = (xo) => {
@@ -100,15 +107,12 @@ const pveDisplay = (xo) => {
     if (currentValue == 0 || currentValue == 2) {
       xClick(xo);
       playedSquares.push(1);
-    } else if ((currentValue = 1)) {
-      aiClick();
-      playedSquares.push(2);
-    }
-};
-}
+}; console.log(currentValue);
+}};
 
 const pve = (xo) => {
     pveDisplay(xo);
+    aiClick();
 }
 
 // win conditions ------------------------------------------------------------------
@@ -199,23 +203,21 @@ const tie = () => {
         winMessage.innerHTML = "There is a Tie!";
 }};
 
-singlePlayer.addEventListener("click", () => {
-  singlePlayer.classList.add("hidden");
-  multiPlayer.classList.add("hidden");
-  playBoard.classList.remove("hidden");
-  squares.forEach((xo) => {
-    xo.addEventListener("click", () => {
-      pve();
-      win();
-      tie();
-    });
-  });
-});
 
+// game mode selection
+let multiplayer = 0;
+
+const multiplayerOption = () => {
 multiPlayer.addEventListener("click", () => {
   singlePlayer.classList.add("hidden");
   multiPlayer.classList.add("hidden");
   playBoard.classList.remove("hidden");
+  multiplayer = 2;
+  playerChoice();
+})};
+  
+
+const multiplayerMode = () => {
   squares.forEach((xo) => {
     xo.addEventListener("click", () => {
     pvp(xo);
@@ -223,10 +225,42 @@ multiPlayer.addEventListener("click", () => {
     tie();
   });
 });
-});
+};
+
+const singleplayerOption = () => {
+  singlePlayer.addEventListener("click", () => {
+    singlePlayer.classList.add("hidden");
+    multiPlayer.classList.add("hidden");
+    playBoard.classList.remove("hidden");
+    multiplayer = 1;
+    playerChoice();
+})};
+
+const singleplayerMode = () => {
+  squares.forEach((xo) => {
+    xo.addEventListener("click", () => {
+      pve(xo);
+      win();
+      tie();
+    });
+  });
+};
+
+const playerChoice = () => {
+  if (multiplayer == 2) {
+    multiplayerMode();
+  } else if (multiplayer == 1) {
+    singleplayerMode();
+  }
+}
+
+multiplayerOption();
+singleplayerOption();
+
 
 // clear function
 const clearBoard = () => {
+    multiplayer = 0;
     currentValue = 0;
     playedSquares = [];
     winMessage.innerHTML = '';
@@ -239,10 +273,9 @@ const clearBoard = () => {
         xo.classList.remove("x");
         xo.classList.remove("o");
         xo.classList.remove("winner");
-        xo.classList.remove("loser");
+        xo.classList.add("playable");
 })};
 
 restart.addEventListener("click", () =>{
     clearBoard();
 });
-

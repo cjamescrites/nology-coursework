@@ -6,16 +6,15 @@
     background-color: white;
     padding: 0;
     margin: 0;
+    background-image: url(background.jpg);
 }
 
 body {
-    border: 5px green solid;
     height: 100vh;
     width: 100vw;
 }
 
 .main {
-    border: 5px pink solid;
     text-align: center;
     height: 80%;
 }
@@ -23,12 +22,22 @@ body {
 h1 {
     margin-top: 40px;
     font-weight: bolder;
+    border: 1px black solid;
+    width: 200px;
+    background-image: url(background.jpg);
+    background-size: 200px;
+}
+
+.h1-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .board-container {
     display: flex;
     flex-direction: column;
-    border: 5px red solid;
     align-items: center;
     justify-content: center;
     height: 80%;
@@ -50,8 +59,9 @@ h1 {
     justify-content: center;
 }
 
-#single-player {
-    margin-right: 5px;
+.board-container > .play-choice {
+    align-items: center;
+    justify-content: center;
 }
 
 .square {
@@ -95,6 +105,11 @@ h1 {
     grid-area: BR;
 }
 
+.square {
+    background-image: url(background.jpg);
+    background-size: 225px;
+}
+
 button {
     font-weight: bolder;
     padding: 8px;
@@ -106,22 +121,20 @@ button:hover {
 }
 
 .winner {
-    background-color: gold;
-    color: black;
-}
-
-.loser {
-    background-color: brown;
+    background-image: none;
+    background-color: rgb(255, 174, 0);
     color: black;
 }
 
 .x {
-    background-color: blue;
+    background-image: none;
+    background-color: rgb(135, 206, 250);
     color: white;
 }
 
 .o {
-    background-color: red;
+    background-image: none;
+    background-color: rgb(248, 12, 14);
     color: black;
 }
 
@@ -130,5 +143,21 @@ button:hover {
 }
 
 .hidden {
-    visibility: hidden;
+    display: none;
 }
+
+#single-player {
+    background-image: url(background.jpg);
+    background-size: 130px;
+}
+
+#multi-player {
+    background-image: url(background.jpg);
+    background-size: 130px;
+}
+
+.restart {
+    background-image: url(background.jpg);
+    background-size: 100px;
+}
+
