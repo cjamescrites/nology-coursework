@@ -9,7 +9,7 @@
 // ---------- Multi-Player ----------
 // ✓ need to switch between X and O per click to simulate turns
 // ---------- Single-Player ----------
-//   need a basic AI that'll pick random squares that aren't selected
+// ✓ need a basic AI that'll pick random squares that aren't selected
 // ---------- Win Conditions ----------
 // ✓ need to detect if X or O takes up three spaces in a row/column/diagonally to determine winner
 // ✓ if/else every possible winning solution
