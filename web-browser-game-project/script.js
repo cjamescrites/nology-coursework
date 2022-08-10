@@ -10,6 +10,7 @@
 // ✓ need to switch between X and O per click to simulate turns
 // ---------- Single-Player ----------
 // ✓ need a basic AI that'll pick random squares that aren't selected
+// ✓ add delay between user and "ai" turn
 // ---------- Win Conditions ----------
 // ✓ need to detect if X or O takes up three spaces in a row/column/diagonally to determine winner
 // ✓ if/else every possible winning solution
@@ -99,8 +100,9 @@ const aiChoice = () => {
 };
 
 const aiClick = () => {
-  aiChoice();
+  setTimeout(aiChoice,750);
 };
+
 
 const pveDisplay = (xo) => {
   if (xo.innerHTML != "X" && xo.innerHTML != "O") {
